@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {increment, decrement} from "./redux/action"
+import {useSelector,useDispatch} from "react-redux"
+import Data from "./components/Data" 
 function App() {
+  // const num = 0;
+
+  // const count = useSelector(state => state.count)
+
+  const dispatch = useDispatch()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button  onClick={()=>{
+        dispatch(increment())
+      }}>+</button>
+      <Data />
+      <button onClick={()=>{
+        dispatch(decrement())
+      }}>-</button>
     </div>
   );
 }
